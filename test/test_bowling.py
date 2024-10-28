@@ -7,5 +7,10 @@ from frame import Frame
 
 class TestBowlingGame(unittest.TestCase):
 
-    def test_something(self):
-        pass
+    def setUp(self):
+        self.game = BowlingGame()
+
+    def test_game_created(self):
+        f = Frame(1,5)
+        self.game.add_frame(f)
+        self.assertEquals(self.game.get_frame_at(0), f)
