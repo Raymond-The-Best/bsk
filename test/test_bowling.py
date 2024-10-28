@@ -88,3 +88,17 @@ class TestBowlingGame(unittest.TestCase):
         self.game.add_frame(Frame(2, 6))
 
         self.assertEqual(self.game.calculate_score(), 94)
+
+    def test_strike_and_spare(self):
+        self.game.add_frame(Frame(10, 0))
+        self.game.add_frame(Frame(4, 6))
+        self.game.add_frame(Frame(7, 2))
+        self.game.add_frame(Frame(3, 6))
+        self.game.add_frame(Frame(4, 4))
+        self.game.add_frame(Frame(5, 3))
+        self.game.add_frame(Frame(3, 3))
+        self.game.add_frame(Frame(4, 5))
+        self.game.add_frame(Frame(8, 1))
+        self.game.add_frame(Frame(2, 6))
+
+        self.assertEqual(self.game.calculate_score(), 103)
