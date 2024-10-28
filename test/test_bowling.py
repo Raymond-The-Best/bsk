@@ -14,3 +14,6 @@ class TestBowlingGame(unittest.TestCase):
         f = Frame(1,5)
         self.game.add_frame(f)
         self.assertEquals(self.game.get_frame_at(0), f)
+
+    def test_get_missing_frame_raises_BowlingError(self):
+        self.assertRaises(BowlingError, self.game.get_frame_at, 0)
