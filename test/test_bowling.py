@@ -145,3 +145,37 @@ class TestBowlingGame(unittest.TestCase):
 
         self.assertEqual(90, self.game.calculate_score())
 
+    def strike_as_the_last_frame(self):
+        self.game.add_frame(Frame(1, 5))
+        self.game.add_frame(Frame(3, 6))
+        self.game.add_frame(Frame(7, 2))
+        self.game.add_frame(Frame(3, 6))
+        self.game.add_frame(Frame(4, 4))
+        self.game.add_frame(Frame(5, 3))
+        self.game.add_frame(Frame(3, 3))
+        self.game.add_frame(Frame(4, 5))
+        self.game.add_frame(Frame(8, 1))
+        self.game.add_frame(Frame(10, 0))
+
+        self.game.set_first_bonus_throw(7)
+        self.game.set_second_bonus_throw(2)
+
+        self.assertEqual(92, self.game.calculate_score())
+
+    def last_two_frames_as_a_strike(self):
+        self.game.add_frame(Frame(1, 5))
+        self.game.add_frame(Frame(3, 6))
+        self.game.add_frame(Frame(7, 2))
+        self.game.add_frame(Frame(3, 6))
+        self.game.add_frame(Frame(4, 4))
+        self.game.add_frame(Frame(5, 3))
+        self.game.add_frame(Frame(3, 3))
+        self.game.add_frame(Frame(4, 5))
+        self.game.add_frame(Frame(10, 0))
+        self.game.add_frame(Frame(10, 0))
+
+        self.game.set_first_bonus_throw(7)
+        self.game.set_second_bonus_throw(2)
+
+        self.assertEqual(110, self.game.calculate_score())
+
